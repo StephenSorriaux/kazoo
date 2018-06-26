@@ -290,6 +290,15 @@ class KazooClient(object):
         self.Semaphore = partial(Semaphore, self)
         self.ShallowParty = partial(ShallowParty, self)
 
+        # Managing SASL client
+        self.use_sasl = False
+        for scheme, auth in self.auth_data:
+            if scheme == "sasl":
+                self.use_sasl = True
+                # Could be used later for GSSAPI implementation
+                self.sasl_server_principal = "zk-sasl-md5"
+                break
+
         # If we got any unhandled keywords, complain like Python would
         if kwargs:
             raise TypeError('__init__() got unexpected keyword arguments: %s'
