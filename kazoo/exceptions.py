@@ -1,7 +1,6 @@
 """Kazoo Exceptions"""
 from collections import defaultdict
 
-
 class KazooException(Exception):
     """Base Kazoo exception that all other kazoo library exceptions
     inherit from"""
@@ -41,7 +40,6 @@ class WriterNotClosedException(KazooException):
 
     .. versionadded:: 1.2
     """
-
 
 def _invalid_error_code():
     raise RuntimeError('Invalid error code')
