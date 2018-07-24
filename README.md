@@ -1,7 +1,7 @@
 Kazoo-sasl
 =====
 
-![Travis Build](https://travis-ci.org/StephenSorriaux/kazoo-sasl.svg?branch=master)
+![Travis Build](https://travis-ci.org/StephenSorriaux/kazoo.svg?branch=master)
 
 ![Latest Version](https://img.shields.io/pypi/v/kazoo-sasl.svg)
 
