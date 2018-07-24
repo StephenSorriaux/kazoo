@@ -1,9 +1,9 @@
 .. _eventlet_handler_module:
 
-:mod:`kazoo.handlers.eventlet`
+:mod:`kazoo_sasl.handlers.eventlet`
 ----------------------------
 
-.. automodule:: kazoo.handlers.eventlet
+.. automodule:: kazoo_sasl.handlers.eventlet
 
 Public API
 ++++++++++

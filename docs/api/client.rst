@@ -1,9 +1,9 @@
 .. _client_module:
 
-:mod:`kazoo.client`
+:mod:`kazoo_sasl.client`
 ----------------------------
 
-.. automodule:: kazoo.client
+.. automodule:: kazoo_sasl.client
 
 Public API
 ++++++++++
@@ -16,7 +16,7 @@ Public API
 
         .. attribute:: handler
 
-            The :class:`~kazoo.interfaces.IHandler` strategy used by this
+            The :class:`~kazoo_sasl.interfaces.IHandler` strategy used by this
             client. Gives access to appropriate synchronization objects.
 
         .. method:: retry(func, *args, **kwargs)
@@ -27,7 +27,7 @@ Public API
 
         .. attribute:: state
 
-            A :class:`~kazoo.protocol.states.KazooState` attribute indicating
+            A :class:`~kazoo_sasl.protocol.states.KazooState` attribute indicating
             the current higher-level connection state.
 
     .. autoclass:: TransactionRequest

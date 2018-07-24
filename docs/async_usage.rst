@@ -5,13 +5,13 @@ Asynchronous Usage
 ==================
 
 The asynchronous Kazoo API relies on the
-:class:`~kazoo.interfaces.IAsyncResult` object which is returned by all the
+:class:`~kazoo_sasl.interfaces.IAsyncResult` object which is returned by all the
 asynchronous methods. Callbacks can be added with the
-:meth:`~kazoo.interfaces.IAsyncResult.rawlink` method which works in a
+:meth:`~kazoo_sasl.interfaces.IAsyncResult.rawlink` method which works in a
 consistent manner whether threads or an asynchronous framework like gevent is
 used.
 
-Kazoo utilizes a pluggable :class:`~kazoo.interfaces.IHandler` interface which
+Kazoo utilizes a pluggable :class:`~kazoo_sasl.interfaces.IHandler` interface which
 abstracts the callback system to ensure it works consistently.
 
 Connection Handling
@@ -21,8 +21,8 @@ Creating a connection:
 
 .. code-block:: python
 
-    from kazoo.client import KazooClient
-    from kazoo.handlers.gevent import SequentialGeventHandler
+    from kazoo_sasl.client import KazooClient
+    from kazoo_sasl.handlers.gevent import SequentialGeventHandler
 
     zk = KazooClient(handler=SequentialGeventHandler())
 
@@ -38,29 +38,29 @@ Creating a connection:
         raise Exception("Unable to connect.")
 
 In this example, the `wait` method is used on the event object returned by the
-:meth:`~kazoo.client.KazooClient.start_async` method. A timeout is **always**
+:meth:`~kazoo_sasl.client.KazooClient.start_async` method. A timeout is **always**
 used because its possible that we might never connect and that should be
 handled gracefully.
 
-The :class:`~kazoo.handlers.gevent.SequentialGeventHandler` is used when you
+The :class:`~kazoo_sasl.handlers.gevent.SequentialGeventHandler` is used when you
 want to use gevent (and
-:class:`~kazoo.handlers.eventlet.SequentialEventletHandler` when eventlet is
+:class:`~kazoo_sasl.handlers.eventlet.SequentialEventletHandler` when eventlet is
 used). Kazoo doesn't rely on gevents/eventlet monkey patching and requires
 that you pass in the appropriate handler, the default handler is
-:class:`~kazoo.handlers.threading.SequentialThreadingHandler`.
+:class:`~kazoo_sasl.handlers.threading.SequentialThreadingHandler`.
 
 Asynchronous Callbacks
 ======================
 
 All kazoo `_async` methods except for
-:meth:`~kazoo.client.KazooClient.start_async` return an
-:class:`~kazoo.interfaces.IAsyncResult` instance. These instances allow
+:meth:`~kazoo_sasl.client.KazooClient.start_async` return an
+:class:`~kazoo_sasl.interfaces.IAsyncResult` instance. These instances allow
 you to see when a result is ready, or chain one or more callback
 functions to the result that will be called when it's ready.
 
 The callback function will be passed the
-:class:`~kazoo.interfaces.IAsyncResult` instance and should call the
-:meth:`~kazoo.interfaces.IAsyncResult.get` method on it to retrieve
+:class:`~kazoo_sasl.interfaces.IAsyncResult` instance and should call the
+:meth:`~kazoo_sasl.interfaces.IAsyncResult.get` method on it to retrieve
 the value. This call could result in an exception being raised
 if the asynchronous function encountered an error. It should be caught
 and handled appropriately.
@@ -71,8 +71,8 @@ Example:
 
     import sys
 
-    from kazoo.exceptions import ConnectionLossException
-    from kazoo.exceptions import NoAuthException
+    from kazoo_sasl.exceptions import ConnectionLossException
+    from kazoo_sasl.exceptions import NoAuthException
 
     def my_callback(async_obj):
         try:
@@ -90,26 +90,26 @@ Zookeeper CRUD
 ==============
 
 The following CRUD methods all work the same as their synchronous counterparts
-except that they return an :class:`~kazoo.interfaces.IAsyncResult` object.
+except that they return an :class:`~kazoo_sasl.interfaces.IAsyncResult` object.
 
 Creating Method:
 
-* :meth:`~kazoo.client.KazooClient.create_async`
+* :meth:`~kazoo_sasl.client.KazooClient.create_async`
 
 Reading Methods:
 
-* :meth:`~kazoo.client.KazooClient.exists_async`
-* :meth:`~kazoo.client.KazooClient.get_async`
-* :meth:`~kazoo.client.KazooClient.get_children_async`
+* :meth:`~kazoo_sasl.client.KazooClient.exists_async`
+* :meth:`~kazoo_sasl.client.KazooClient.get_async`
+* :meth:`~kazoo_sasl.client.KazooClient.get_children_async`
 
 Updating Methods:
 
-* :meth:`~kazoo.client.KazooClient.set_async`
+* :meth:`~kazoo_sasl.client.KazooClient.set_async`
 
 Deleting Methods:
 
-* :meth:`~kazoo.client.KazooClient.delete_async`
+* :meth:`~kazoo_sasl.client.KazooClient.delete_async`
 
-The :meth:`~kazoo.client.KazooClient.ensure_path` has no asynchronous
+The :meth:`~kazoo_sasl.client.KazooClient.ensure_path` has no asynchronous
 counterpart at the moment nor can the
-:meth:`~kazoo.client.KazooClient.delete_async` method do recursive deletes.
+:meth:`~kazoo_sasl.client.KazooClient.delete_async` method do recursive deletes.

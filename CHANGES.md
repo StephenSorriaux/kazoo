@@ -1,3 +1,10 @@
+<a name="2.6.0"></a>
+## 2.6.0 (2018-07-24)
+
+#### Features
+
+* **recipe:**  added SASL digest MD5 support ([533adbba](https://github.com/python-zk/kazoo/commit/533adbbafdfb41c1bf01fdf3c188c063847b542b))
+
 <a name="2.5.0"></a>
 ## 2.5.0 (2018-06-01)
 
@@ -154,7 +161,7 @@ VERSIONS WILL REQUIRE PYTHON 2.7 AND ABOVE.
     python 2.x and 3.x (reducing/removing the need to have custom
     compatibility code that replicates what six already provides).
 -   Add `state_change_event` to
-    `kazoo.recipe.partitioner.SetPartitioner` which is set on every
+    `kazoo_sasl.recipe.partitioner.SetPartitioner` which is set on every
     state change.
 -   Add a NonBlockingLease recipe. The recipe allows e.g. cron jobs
     scheduled on multiple machines to ensure that at most N instances
@@ -217,7 +224,7 @@ VERSIONS WILL REQUIRE PYTHON 2.7 AND ABOVE.
 
 -   Logging levels have been reduced.
     -   Logging previously at the `logging.DEBUG` level is now logged at
-        the `kazoo.loggingsupport.BLATHER` level (5).
+        the `kazoo_sasl.loggingsupport.BLATHER` level (5).
     -   Some low-level logging previously at the `logging.INFO` level is
         now logged at the `logging.DEBUG` level.
 -   Issue \#133: Introduce a new environment variable
@@ -276,7 +283,7 @@ VERSIONS WILL REQUIRE PYTHON 2.7 AND ABOVE.
 
 ### Documentation
 
--   \#121: Add a note about kazoo.recipe.queue.LockingQueue requiring a
+-   \#121: Add a note about kazoo_sasl.recipe.queue.LockingQueue requiring a
     Zookeeper 3.4+ server.
 
 1.3 (2013-09-05)
@@ -293,9 +300,9 @@ VERSIONS WILL REQUIRE PYTHON 2.7 AND ABOVE.
 ### Bug Handling
 
 -   Issue \#108: Circular import fail when importing
-    kazoo.recipe.watchers directly has now been resolved. Watchers and
+    kazoo_sasl.recipe.watchers directly has now been resolved. Watchers and
     partitioner properly import the KazooState from
-    kazoo.protocol.states rather than kazoo.client.
+    kazoo_sasl.protocol.states rather than kazoo_sasl.client.
 -   Issue \#109: Partials not usable properly as a datawatch call can
     now be used. All funcs will be called with 3 args and fall back to 2
     args if there's an argument error.
@@ -350,7 +357,7 @@ VERSIONS WILL REQUIRE PYTHON 2.7 AND ABOVE.
 
 ### API Changes
 
--   The kazoo.testing.harness.KazooTestHarness class directly inherits
+-   The kazoo_sasl.testing.harness.KazooTestHarness class directly inherits
     from unittest.TestCase and you need to ensure to call its
     \_\_init\_\_ method.
 -   DataWatch no longer takes any parameters besides for the optional
@@ -447,7 +454,7 @@ VERSIONS WILL REQUIRE PYTHON 2.7 AND ABOVE.
 ### API Changes
 
 -   When a retry operation ultimately fails, it now raises a
-    kazoo.retry.RetryFailedError exception, instead of a general
+    kazoo_sasl.retry.RetryFailedError exception, instead of a general
     Exception instance. RetryFailedError also inherits from the base
     KazooException.
 
@@ -577,7 +584,7 @@ and/or the C binding.
 -   The testing helpers have been moved from testing.\_\_init\_\_ into a
     testing.harness module. The official API's of KazooTestCase and
     KazooTestHarness can still be directly imported from testing.
--   The kazoo.handlers.util module was removed.
+-   The kazoo_sasl.handlers.util module was removed.
 -   Backwards compatible exception class aliases are provided for now in
     kazoo exceptions for the prior C exception names.
 -   Unicode strings now work fine for node names and are properly
@@ -685,4 +692,3 @@ and/or the C binding.
     under the name 'Zookeeper'.
 -   Base client library with handler support for threading and gevent
     async environments.
-

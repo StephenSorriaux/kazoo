@@ -1,9 +1,9 @@
 .. _barrier_module:
 
-:mod:`kazoo.recipe.barrier`
+:mod:`kazoo_sasl.recipe.barrier`
 ----------------------------
 
-.. automodule:: kazoo.recipe.barrier
+.. automodule:: kazoo_sasl.recipe.barrier
 
 Public API
 ++++++++++

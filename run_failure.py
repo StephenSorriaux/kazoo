@@ -10,7 +10,7 @@ def main(args):
     if not args:
         print("Run as bin/python run_failure.py <test>, for example: \n"
               "bin/python run_failure.py "
-              "kazoo.tests.test_watchers:KazooChildrenWatcherTests")
+              "kazoo_sasl.tests.test_watchers:KazooChildrenWatcherTests")
         return
     arg = args[0]
     i = 0

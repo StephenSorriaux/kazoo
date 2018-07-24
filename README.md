@@ -1,21 +1,21 @@
-Kazoo
+Kazoo-sasl
 =====
 
-![Travis Build](https://travis-ci.org/python-zk/kazoo.svg?branch=master)
+![Travis Build](https://travis-ci.org/StephenSorriaux/kazoo-sasl.svg?branch=master)
 
-![Latest Version](https://img.shields.io/pypi/v/kazoo.svg)
+![Latest Version](https://img.shields.io/pypi/v/kazoo-sasl.svg)
 
-![Downloads](https://img.shields.io/pypi/dm/kazoo.svg)
+![Downloads](https://img.shields.io/pypi/dm/kazoo-sasl.svg)
 
-`kazoo` implements a higher level API to [Apache
-Zookeeper](http://zookeeper.apache.org/) for Python clients.
+`kazoo-sasl` is a fork of `kazoo` that implements a higher level API to [Apache
+Zookeeper](http://zookeeper.apache.org/)  with SASL for Python clients.
 
 See [the full docs](http://kazoo.rtfd.org/) for more information.
 
 License
 -------
 
-`kazoo` is offered under the Apache License 2.0.
+`kazoo-sasl` is offered under the Apache License 2.0.
 
 Authors
 -------

@@ -1,9 +1,9 @@
 .. _party_module:
 
-:mod:`kazoo.recipe.party`
+:mod:`kazoo_sasl.recipe.party`
 -------------------------
 
-.. automodule:: kazoo.recipe.party
+.. automodule:: kazoo_sasl.recipe.party
 
 Public API
 ++++++++++

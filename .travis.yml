@@ -52,9 +52,9 @@ script:
 - make test
 deploy:
   provider: pypi
-  user: bbangert
+  user: ssorriaux
   password:
-    secure: L9yXZ2PhQ2wJKQkgigIzW3f/a3ajzUamMdThVelcp/NZeTJfzlC/t89lfSRwLh95o9Z/aIxC4T8yZvNrRzzyMEP0O6s1F69pVm5Px+KBuv82lmI7p5sKTYPp35CE9jH+K/52Fy0+Az5F502xLrkaO4VLLA+zhLffw/qyvNbZui0=
+    secure: "VXfw13FIgEWVLd192P1vh0a3cGU42ot/t4v2hk7N9P/K1gRUp6QqSzxIUpOTQSACSOtwK+vkMxJ1peL6gTR6tqhRQ0+8LDD68742p/qkz2w3U2gfUGNAI9YV1nJPAFvNRO/NizWC+IZfl/G7TwbXs+zrrLkWL1CCBhKorNg6NDbqBbWJ2M+Tdn5v/AAg2FQ87nDhhFS5bMz11UX7syDBKEsgzEtec+OtQG+Uh0QeE0xDW8Qg8NzmkEo4wYTWtMY3EHZFn6McAcHZSZUBXwhRP65LR6UiedlYzdnBliYfQjYEWnoMU0vpQJ70PXEdRdSpR29WmL4K3wJBg47F8BDv89I3KvlvXIYwli0TEO5zUsweZZm3zdywdKdG9c/zTJ6HYSKNo8qv2G46fxVL9j/BHIdBmwwDVScrv/M8gjjnlSzSt0aT1tKqgYuUza/GEQ/5pLWcGtZlura2DiEx11z3EjiDBrMhwwPz0GU4r6o0WTmU6rC507hU91HLlumzmMmu8NhkXtTYZBuT22hg5fcEtl/J2Dl9K2LsTejs1GwAnPeuhwD1laPYpjbSx39gjiQorii+d+Mjz42fNnoOGGzG+EYtKXtbdlGPiy80IxI551tZ0aimjvcaP3+3+coTwsO3QbqgsNQ4mWCP91malG5w0AON1IR1ywP7VVNDOA/yTx0="
   on:
     tags: true
     python: 3.4

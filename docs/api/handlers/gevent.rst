@@ -1,9 +1,9 @@
 .. _gevent_handler_module:
 
-:mod:`kazoo.handlers.gevent`
+:mod:`kazoo_sasl.handlers.gevent`
 ----------------------------
 
-.. automodule:: kazoo.handlers.gevent
+.. automodule:: kazoo_sasl.handlers.gevent
 
 Public API
 ++++++++++

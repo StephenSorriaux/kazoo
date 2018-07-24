@@ -20,7 +20,7 @@ first fork the repository on github to your own account. Then clone
 your new repository and run the build scripts:
 
 ```
-    git clone git@github.com:<username>/kazoo.git
+    git clone git@github.com:<username>/kazoo_sasl.git
     cd kazoo
     make
 ```
@@ -41,7 +41,7 @@ Or to run individual tests:
 
 ```
     export ZOOKEEPER_PATH=/<path to current folder>/bin/zookeeper/
-    bin/nosetests -s -d kazoo.tests.test_client:TestClient.test_create
+    bin/nosetests -s -d kazoo_sasl.tests.test_client:TestClient.test_create
 ```
 
 The nose test runner allows you to filter by test module, class or

@@ -1,9 +1,9 @@
 .. _election_module:
 
-:mod:`kazoo.recipe.election`
+:mod:`kazoo_sasl.recipe.election`
 ----------------------------
 
-.. automodule:: kazoo.recipe.election
+.. automodule:: kazoo_sasl.recipe.election
 
 Public API
 ++++++++++

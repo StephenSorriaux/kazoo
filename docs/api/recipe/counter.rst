@@ -1,9 +1,9 @@
 .. _counter_module:
 
-:mod:`kazoo.recipe.counter`
+:mod:`kazoo_sasl.recipe.counter`
 ---------------------------
 
-.. automodule:: kazoo.recipe.counter
+.. automodule:: kazoo_sasl.recipe.counter
 
 .. versionadded:: 0.7
     The Counter class.

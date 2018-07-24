@@ -1,9 +1,9 @@
 .. _watchers_module:
 
-:mod:`kazoo.recipe.watchers`
+:mod:`kazoo_sasl.recipe.watchers`
 ----------------------------
 
-.. automodule:: kazoo.recipe.watchers
+.. automodule:: kazoo_sasl.recipe.watchers
 
 Public API
 ++++++++++

@@ -1,9 +1,9 @@
 .. _retry_module:
 
-:mod:`kazoo.retry`
+:mod:`kazoo_sasl.retry`
 ----------------------------
 
-.. automodule:: kazoo.retry
+.. automodule:: kazoo_sasl.retry
 
 Public API
 ++++++++++

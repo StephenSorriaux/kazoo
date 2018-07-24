@@ -1,9 +1,9 @@
 .. _lease_module:
 
-:mod:`kazoo.recipe.lease`
+:mod:`kazoo_sasl.recipe.lease`
 ----------------------------
 
-.. automodule:: kazoo.recipe.lease
+.. automodule:: kazoo_sasl.recipe.lease
 
 Public API
 ++++++++++

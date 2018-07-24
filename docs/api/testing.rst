@@ -1,9 +1,9 @@
 .. _testing_harness_module:
 
-:mod:`kazoo.testing.harness`
+:mod:`kazoo_sasl.testing.harness`
 ----------------------------
 
-.. automodule:: kazoo.testing.harness
+.. automodule:: kazoo_sasl.testing.harness
 
 Public API
 ++++++++++

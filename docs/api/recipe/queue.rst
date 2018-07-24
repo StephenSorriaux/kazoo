@@ -1,9 +1,9 @@
 .. _queue_module:
 
-:mod:`kazoo.recipe.queue`
+:mod:`kazoo_sasl.recipe.queue`
 -------------------------
 
-.. automodule:: kazoo.recipe.queue
+.. automodule:: kazoo_sasl.recipe.queue
 
 .. versionadded:: 0.6
     The Queue class.

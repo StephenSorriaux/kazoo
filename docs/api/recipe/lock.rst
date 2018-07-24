@@ -1,9 +1,9 @@
 .. _lock_module:
 
-:mod:`kazoo.recipe.lock`
+:mod:`kazoo_sasl.recipe.lock`
 ----------------------------
 
-.. automodule:: kazoo.recipe.lock
+.. automodule:: kazoo_sasl.recipe.lock
 
 Public API
 ++++++++++

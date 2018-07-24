@@ -10,7 +10,7 @@ with open(os.path.join(here, 'README.md')) as f:
 with open(os.path.join(here, 'CHANGES.md')) as f:
     CHANGES = f.read()
 version = ''
-with open(os.path.join(here, 'kazoo', 'version.py')) as f:
+with open(os.path.join(here, 'kazoo_sasl', 'version.py')) as f:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
                         f.read(), re.MULTILINE).group(1)
 
@@ -41,7 +41,7 @@ if on_rtd:
     ]
 
 setup(
-    name='kazoo',
+    name='kazoo-sasl',
     version=version,
     description='Higher Level Zookeeper Client',
     long_description=README + '\n\n' + CHANGES,
@@ -69,7 +69,7 @@ setup(
     url="https://kazoo.readthedocs.io",
     license="Apache 2.0",
     packages=find_packages(),
-    test_suite="kazoo.tests",
+    test_suite="kazoo_sasl.tests",
     include_package_data=True,
     zip_safe=False,
     install_requires=install_requires,

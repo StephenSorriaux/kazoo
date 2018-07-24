@@ -1,9 +1,9 @@
 .. _cache_module:
 
-:mod:`kazoo.recipe.cache`
+:mod:`kazoo_sasl.recipe.cache`
 ----------------------------
 
-.. automodule:: kazoo.recipe.cache
+.. automodule:: kazoo_sasl.recipe.cache
 
 Public API
 ++++++++++

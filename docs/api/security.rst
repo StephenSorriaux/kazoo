@@ -1,9 +1,9 @@
 .. _security_module:
 
-:mod:`kazoo.security`
+:mod:`kazoo_sasl.security`
 ----------------------------
 
-.. automodule:: kazoo.security
+.. automodule:: kazoo_sasl.security
 
 Public API
 ++++++++++

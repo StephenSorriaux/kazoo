@@ -64,7 +64,7 @@ copyright = u'2011-2014, Kazoo team'
 # built documents.
 #
 # The full version, including alpha/beta/rc tags.
-from kazoo import version
+from kazoo_sasl  import version
 release = version.__version__
 
 # The short X.Y version.
@@ -201,7 +201,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'kazoo.tex', u'kazoo Documentation',
+  ('index', 'kazoo_sasl.tex', u'kazoo Documentation',
    u'Various Authors', 'manual'),
 ]
 

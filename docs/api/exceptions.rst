@@ -1,9 +1,9 @@
 .. _exceptions_module:
 
-:mod:`kazoo.exceptions`
+:mod:`kazoo_sasl.exceptions`
 -----------------------
 
-.. automodule:: kazoo.exceptions
+.. automodule:: kazoo_sasl.exceptions
 
 Public API
 ++++++++++

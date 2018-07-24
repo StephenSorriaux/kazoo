@@ -1,9 +1,9 @@
 .. _partitioner_module:
 
-:mod:`kazoo.recipe.partitioner`
+:mod:`kazoo_sasl.recipe.partitioner`
 -------------------------------
 
-.. automodule:: kazoo.recipe.partitioner
+.. automodule:: kazoo_sasl.recipe.partitioner
 
 Public API
 ++++++++++

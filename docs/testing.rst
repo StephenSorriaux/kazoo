@@ -27,14 +27,14 @@ a cluster with three members will use ports 20000, 20010 and 20020.
 Kazoo Test Harness
 ==================
 
-The :class:`~kazoo.testing.harness.KazooTestHarness` can be used directly or
+The :class:`~kazoo_sasl.testing.harness.KazooTestHarness` can be used directly or
 mixed in with your test code.
 
 Example:
 
 .. code-block:: python
 
-    from kazoo.testing import KazooTestHarness
+    from kazoo_sasl.testing import KazooTestHarness
 
     class MyTest(KazooTestHarness):
         def setUp(self):
@@ -52,14 +52,14 @@ Example:
 Kazoo Test Case
 ===============
 
-The :class:`~kazoo.testing.harness.KazooTestCase` is complete test case that
+The :class:`~kazoo_sasl.testing.harness.KazooTestCase` is complete test case that
 is equivalent to the mixin setup of
-:class:`~kazoo.testing.harness.KazooTestHarness`. An equivalent test to the
+:class:`~kazoo_sasl.testing.harness.KazooTestHarness`. An equivalent test to the
 one above:
 
 .. code-block:: python
 
-    from kazoo.testing import KazooTestCase
+    from kazoo_sasl.testing import KazooTestCase
 
     class MyTest(KazooTestCase):
         def testmycode(self):

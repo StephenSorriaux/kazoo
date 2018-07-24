@@ -8,12 +8,12 @@ Basic Usage
 Connection Handling
 ===================
 
-To begin using Kazoo, a :class:`~kazoo.client.KazooClient` object must be
+To begin using Kazoo, a :class:`~kazoo_sasl.client.KazooClient` object must be
 created and a connection established:
 
 .. code-block:: python
 
-    from kazoo.client import KazooClient
+    from kazoo_sasl.client import KazooClient
 
     zk = KazooClient(hosts='127.0.0.1:2181')
     zk.start()
@@ -38,7 +38,7 @@ If logging is not setup for your application, you can get following message:
 
 .. code-block:: python
     
-    No handlers could be found for logger "kazoo.client"
+    No handlers could be found for logger "kazoo_sasl.client"
 
 To avoid this issue you can at the very minimum do the following:
 
@@ -61,7 +61,7 @@ state changes.
 
 .. code-block:: python
 
-    from kazoo.client import KazooState
+    from kazoo_sasl.client import KazooState
 
     def my_listener(state):
         if state == KazooState.LOST:
@@ -73,23 +73,23 @@ state changes.
 
     zk.add_listener(my_listener)
 
-When using the :class:`kazoo.recipe.lock.Lock` or creating ephemeral nodes, its
+When using the :class:`kazoo_sasl.recipe.lock.Lock` or creating ephemeral nodes, its
 highly recommended to add a state listener so that your program can properly
 deal with connection interruptions or a Zookeeper session loss.
 
 Understanding Kazoo States
 --------------------------
 
-The :class:`~kazoo.protocol.states.KazooState` object represents several states
+The :class:`~kazoo_sasl.protocol.states.KazooState` object represents several states
 the client transitions through. The current state of the client can always be
-determined by viewing the :attr:`~kazoo.client.KazooClient.state` property. The
+determined by viewing the :attr:`~kazoo_sasl.client.KazooClient.state` property. The
 possible states are:
 
 - LOST
 - CONNECTED
 - SUSPENDED
 
-When a :class:`~kazoo.client.KazooClient` instance is first created, it is in
+When a :class:`~kazoo_sasl.client.KazooClient` instance is first created, it is in
 the `LOST` state. After a connection is established it transitions to the
 `CONNECTED` state. If any connection issues come up or if it needs to connect
 to a different Zookeeper cluster node, it will transition to `SUSPENDED` to let
@@ -146,19 +146,19 @@ Zookeeper 3.4 and above `supports a read-only mode
 <http://wiki.apache.org/hadoop/ZooKeeper/GSoCReadOnlyMode>`_. This mode
 must be turned on for the servers in the Zookeeper cluster for the
 client to utilize it. To use this mode with Kazoo, the
-:class:`~kazoo.client.KazooClient` should be called with the
+:class:`~kazoo_sasl.client.KazooClient` should be called with the
 `read_only` option set to `True`. This will let the client connect to
 a Zookeeper node that has gone read-only, and the client will continue
 to scan for other nodes that are read-write.
 
 .. code-block:: python
 
-    from kazoo.client import KazooClient
+    from kazoo_sasl.client import KazooClient
 
     zk = KazooClient(hosts='127.0.0.1:2181', read_only=True)
     zk.start()
 
-A new attribute on :class:`~kazoo.protocol.states.KeeperState` has been
+A new attribute on :class:`~kazoo_sasl.protocol.states.KeeperState` has been
 added, `CONNECTED_RO`. The connection states above are still valid,
 however upon `CONNECTED`, you will need to check the clients non-
 simplified state to see if the connection is `CONNECTED_RO`. For
@@ -166,8 +166,8 @@ example:
 
 .. code-block:: python
 
-    from kazoo.client import KazooState
-    from kazoo.client import KeeperState
+    from kazoo_sasl.client import KazooState
+    from kazoo_sasl.client import KeeperState
 
     @zk.add_listener
     def watch_for_ro(state):
@@ -198,14 +198,14 @@ Creating Nodes
 
 Methods:
 
-* :meth:`~kazoo.client.KazooClient.ensure_path`
-* :meth:`~kazoo.client.KazooClient.create`
+* :meth:`~kazoo_sasl.client.KazooClient.ensure_path`
+* :meth:`~kazoo_sasl.client.KazooClient.create`
 
-:meth:`~kazoo.client.KazooClient.ensure_path` will recursively create the node
+:meth:`~kazoo_sasl.client.KazooClient.ensure_path` will recursively create the node
 and any nodes in the path necessary along the way, but can not set the data for
 the node, only the ACL.
 
-:meth:`~kazoo.client.KazooClient.create` creates a node and can set the data on
+:meth:`~kazoo_sasl.client.KazooClient.create` creates a node and can set the data on
 the node along with a watch function. It requires the path to it to exist
 first, unless the `makepath` option is set to `True`.
 
@@ -222,17 +222,17 @@ Reading Data
 
 Methods:
 
-* :meth:`~kazoo.client.KazooClient.exists`
-* :meth:`~kazoo.client.KazooClient.get`
-* :meth:`~kazoo.client.KazooClient.get_children`
+* :meth:`~kazoo_sasl.client.KazooClient.exists`
+* :meth:`~kazoo_sasl.client.KazooClient.get`
+* :meth:`~kazoo_sasl.client.KazooClient.get_children`
 
-:meth:`~kazoo.client.KazooClient.exists` checks to see if a node exists.
+:meth:`~kazoo_sasl.client.KazooClient.exists` checks to see if a node exists.
 
-:meth:`~kazoo.client.KazooClient.get` fetches the data of the node along with
-detailed node information in a :class:`~kazoo.protocol.states.ZnodeStat`
+:meth:`~kazoo_sasl.client.KazooClient.get` fetches the data of the node along with
+detailed node information in a :class:`~kazoo_sasl.protocol.states.ZnodeStat`
 structure.
 
-:meth:`~kazoo.client.KazooClient.get_children` gets a list of the children of
+:meth:`~kazoo_sasl.client.KazooClient.get_children` gets a list of the children of
 a given node.
 
 .. code-block:: python
@@ -254,11 +254,11 @@ Updating Data
 
 Methods:
 
-* :meth:`~kazoo.client.KazooClient.set`
+* :meth:`~kazoo_sasl.client.KazooClient.set`
 
-:meth:`~kazoo.client.KazooClient.set` updates the data for a given node. A
+:meth:`~kazoo_sasl.client.KazooClient.set` updates the data for a given node. A
 version for the node can be supplied, which will be required to match before
-updating the data, or a :exc:`~kazoo.exceptions.BadVersionError` will be
+updating the data, or a :exc:`~kazoo_sasl.exceptions.BadVersionError` will be
 raised instead of updating.
 
 .. code-block:: python
@@ -270,12 +270,12 @@ Deleting Nodes
 
 Methods:
 
-* :meth:`~kazoo.client.KazooClient.delete`
+* :meth:`~kazoo_sasl.client.KazooClient.delete`
 
-:meth:`~kazoo.client.KazooClient.delete` deletes a node, and can optionally
+:meth:`~kazoo_sasl.client.KazooClient.delete` deletes a node, and can optionally
 recursively delete all children of the node as well. A version can be
 supplied when deleting a node which will be required to match the version of
-the node before deleting it or a :exc:`~kazoo.exceptions.BadVersionError`
+the node before deleting it or a :exc:`~kazoo_sasl.exceptions.BadVersionError`
 will be raised instead of deleting.
 
 .. code-block:: python
@@ -290,7 +290,7 @@ Retrying Commands
 Connections to Zookeeper may get interrupted if the Zookeeper server goes down
 or becomes unreachable. By default, kazoo does not retry commands, so these
 failures will result in an exception being raised. To assist with failures
-kazoo comes with a :meth:`~kazoo.client.KazooClient.retry` helper that will
+kazoo comes with a :meth:`~kazoo_sasl.client.KazooClient.retry` helper that will
 retry a function should one of the Zookeeper connection exceptions get raised.
 
 Example:
@@ -302,13 +302,13 @@ Example:
 Some commands may have unique behavior that doesn't warrant automatic retries
 on a per command basis. For example, if one creates a node a connection might
 be lost before the command returns successfully but the node actually got
-created. This results in a :exc:`kazoo.exceptions.NodeExistsError` being
+created. This results in a :exc:`kazoo_sasl.exceptions.NodeExistsError` being
 raised when it runs again. A similar unique situation arises when a node is
 created with ephemeral and sequence options set,
 `documented here on the Zookeeper site
 <http://zookeeper.apache.org/doc/trunk/recipes.html#sc_recipes_errorHandlingNote>`_.
 
-Since the :meth:`~kazoo.client.KazooClient.retry` method takes a function to
+Since the :meth:`~kazoo_sasl.client.KazooClient.retry` method takes a function to
 call and its arguments, a function that runs multiple Zookeeper commands could
 be passed to it so that the entire function will be retried if the connection
 is lost.
@@ -319,7 +319,7 @@ handle this condition:
 
 .. code-block:: python
 
-    # kazoo.recipe.lock snippet
+    # kazoo_sasl.recipe.lock snippet
 
     def acquire(self):
         """Acquire the mutex, blocking until it is obtained"""
@@ -359,13 +359,13 @@ Custom Retries
 
 Sometimes you may wish to have specific retry policies for a command or
 set of commands that differs from the
-:meth:`~kazoo.client.KazooClient.retry` method. You can manually create
-a :class:`~kazoo.retry.KazooRetry` instance with the specific retry
+:meth:`~kazoo_sasl.client.KazooClient.retry` method. You can manually create
+a :class:`~kazoo_sasl.retry.KazooRetry` instance with the specific retry
 policy you prefer:
 
 .. code-block:: python
 
-    from kazoo.retry import KazooRetry
+    from kazoo_sasl.retry import KazooRetry
 
     kr = KazooRetry(max_tries=3, ignore_expire=False)
     result = kr(client.get, "/some/path")
@@ -387,14 +387,14 @@ will be called once by kazoo, and do *not* receive session events, unlike the
 native Zookeeper watches. Using this style requires the watch function to be
 passed to one of these methods:
 
-* :meth:`~kazoo.client.KazooClient.get`
-* :meth:`~kazoo.client.KazooClient.get_children`
-* :meth:`~kazoo.client.KazooClient.exists`
+* :meth:`~kazoo_sasl.client.KazooClient.get`
+* :meth:`~kazoo_sasl.client.KazooClient.get_children`
+* :meth:`~kazoo_sasl.client.KazooClient.exists`
 
-A watch function passed to :meth:`~kazoo.client.KazooClient.get` or
-:meth:`~kazoo.client.KazooClient.exists` will be called when the data on the
+A watch function passed to :meth:`~kazoo_sasl.client.KazooClient.get` or
+:meth:`~kazoo_sasl.client.KazooClient.exists` will be called when the data on the
 node changes or the node itself is deleted. It will be passed a
-:class:`~kazoo.protocol.states.WatchedEvent` instance.
+:class:`~kazoo_sasl.protocol.states.WatchedEvent` instance.
 
 .. code-block:: python
 
@@ -407,7 +407,7 @@ node changes or the node itself is deleted. It will be passed a
 Kazoo includes a higher level API that watches for data and children
 modifications that's easier to use as it doesn't require re-setting the watch
 every time the event is triggered. It also passes in the data and
-:class:`~kazoo.protocol.states.ZnodeStat` when watching a node or the list of
+:class:`~kazoo_sasl.protocol.states.ZnodeStat` when watching a node or the list of
 children when watching a nodes children. Watch functions registered with this
 API will be called immediately and every time there's a change, or until the
 function returns False. If `allow_session_lost` is set to `True`, then the
@@ -415,10 +415,10 @@ function will no longer be called if the session is lost.
 
 The following methods provide this functionality:
 
-* :class:`~kazoo.recipe.watchers.ChildrenWatch`
-* :class:`~kazoo.recipe.watchers.DataWatch`
+* :class:`~kazoo_sasl.recipe.watchers.ChildrenWatch`
+* :class:`~kazoo_sasl.recipe.watchers.DataWatch`
 
-These classes are available directly on the :class:`~kazoo.client.KazooClient`
+These classes are available directly on the :class:`~kazoo_sasl.client.KazooClient`
 instance and don't require the client object to be passed in when used in this
 manner. The instance returned by instantiating either of the classes can be
 called directly allowing them to be used as decorators:
@@ -452,11 +452,11 @@ transaction.
     transaction.create('/node/b', b"a value")
     results = transaction.commit()
 
-The :meth:`~kazoo.client.KazooClient.transaction` method returns a
-:class:`~kazoo.client.TransactionRequest` instance. It's methods may be
+The :meth:`~kazoo_sasl.client.KazooClient.transaction` method returns a
+:class:`~kazoo_sasl.client.TransactionRequest` instance. It's methods may be
 called to queue commands to be completed in the transaction. When the
 transaction is ready to be sent, the
-:meth:`~kazoo.client.TransactionRequest.commit` method on it is called.
+:meth:`~kazoo_sasl.client.TransactionRequest.commit` method on it is called.
 
 In the example above, there's a command not available unless a
 transaction is being used, `check`. This can check nodes for a specific

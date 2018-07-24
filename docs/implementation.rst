@@ -18,9 +18,9 @@ Handlers
 
 Both the Kazoo handlers run 3 separate queues to help alleviate deadlock issues
 and ensure consistent execution order regardless of environment. The
-:class:`~kazoo.handlers.gevent.SequentialGeventHandler` runs a separate
+:class:`~kazoo_sasl.handlers.gevent.SequentialGeventHandler` runs a separate
 greenlet for each queue that processes the callbacks queued in order. The
-:class:`~kazoo.handlers.threading.SequentialThreadingHandler` runs a separate
+:class:`~kazoo_sasl.handlers.threading.SequentialThreadingHandler` runs a separate
 thread for each queue that processes the callbacks queued in order (thus the
 naming scheme which notes they are sequential in anticipation that there could
 be handlers shipped in the future which don't make this guarantee).
@@ -30,7 +30,7 @@ Callbacks are queued by type, the 3 types being:
 1. Session events (State changes, registered listener functions)
 2. Watch events (Watch callbacks, DataWatch, and ChildrenWatch functions)
 3. Completion callbacks (Functions chained to
-   :class:`~kazoo.interfaces.IAsyncResult` objects)
+   :class:`~kazoo_sasl.interfaces.IAsyncResult` objects)
 
 This ensures that calls can be made to Zookeeper from any callback **except for
 a state listener** without worrying that critical session events will be

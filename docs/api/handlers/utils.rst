@@ -1,9 +1,9 @@
 .. _utils_module:
 
-:mod:`kazoo.handlers.utils`
+:mod:`kazoo_sasl.handlers.utils`
 ---------------------------
 
-.. automodule:: kazoo.handlers.utils
+.. automodule:: kazoo_sasl.handlers.utils
 
 Public API
 ++++++++++

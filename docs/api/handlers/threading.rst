@@ -1,9 +1,9 @@
 .. _thread_handler_module:
 
-:mod:`kazoo.handlers.threading`
+:mod:`kazoo_sasl.handlers.threading`
 -------------------------------
 
-.. automodule:: kazoo.handlers.threading
+.. automodule:: kazoo_sasl.handlers.threading
 
 Public API
 ++++++++++
